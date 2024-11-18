@@ -27,11 +27,11 @@
             document.getElementById('message').innerText = "Hello, this is the displayed text!";
             if (/Mobi|Android/i.test(navigator.userAgent)) {
                     try{
-                        window.flutter_inappwebview.callHandler('Android', shareData.text);
+                        window.flutter_inappwebview.callHandler('Android', "1. Vaibhav this is Working");
                     }
                     catch(err){
-                        window.AndroidShare.postMessage(shareData.text);
-                        navigator.share(shareData)
+                        window.AndroidShare.postMessage("2. Vaibhav this is Working");
+                        navigator.share("3. Vaibhav this is Working")
                         .then(() => {
                         })
                         .catch((e) =>
@@ -39,7 +39,7 @@
                         )
                     }
                 }else{
-                    navigator.share(shareData)
+                    navigator.share("4. Vaibhav this is Working")
                     .then(() => {
                     })
                     .catch((e) =>
