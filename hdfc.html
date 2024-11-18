@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Button Function Example</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #message {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Click the Button</h1>
+    <button onclick="showText()">Click Me!</button>
+    <div id="message"></div>
+
+    <script>
+        function showText() {
+            document.getElementById('message').innerText = "Hello, this is the displayed text!";
+            if (/Mobi|Android/i.test(navigator.userAgent)) {
+                    try{
+                        window.flutter_inappwebview.callHandler('Android', shareData.text);
+                    }
+                    catch(err){
+                        window.AndroidShare.postMessage(shareData.text);
+                        navigator.share(shareData)
+                        .then(() => {
+                        })
+                        .catch((e) =>
+                            console.log('error',e)
+                        )
+                    }
+                }else{
+                    navigator.share(shareData)
+                    .then(() => {
+                    })
+                    .catch((e) =>
+                        console.log('error',e)
+                    )
+                }
+
+
+        }
+    </script>
+</body>
+</html>
